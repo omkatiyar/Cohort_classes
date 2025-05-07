@@ -1,0 +1,6 @@
+Rules:
+1. all patterns will have 2 loops,
+2. outer loop for rows
+3. inner loop for columns.
+4. print the char we have to print
+5. Observer symmetry (this step is optional)

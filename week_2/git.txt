@@ -1,0 +1,28 @@
+There are 2 type of version control systems:
+1. Centralized                  2. Distributed
+-- Centralized VCs: It helps us take backup, track and synchronize files. Two common examples are: subversion and team foundation server.
+If centralized VC fails at any point, then entire org goes down. This is the most challenging problem.
+
+-- Distributed VCs: This counters the problem present in centralized VCs. Ex: git, mercurial.
+Hotfix branch:                                             c1
+Branches:                                                /     \
+Master branch : commit 1 -> commit 2 -> commit 3 -> commit 4 -> merge -> Merge
+                                           \                    /
+Feature branch :                           c1 -> c2 ------------ 
+Feature branch: At commit 3 we have made this new branch named " Feature branch". We do 2 commits in this branch, c1 & c2
+and then we will finally merge this with the Master branch.
+
+Hotfix branch: suppose we were developing some feature which had timeline of 1 week. In between, we get a call that there is
+a bug and we have to fix this, so for this we will make this hotfix branch and fic the issue and commit and merge this branch.
+
+###  git checkout -b new_branch_that_we_will_crreate --- we will use this if we have to create new branch
+### git checkout new_branch_that_we_will_crreate --- we will use this if the branch already exists
+
+### git diff feature_branch -- It will compare the changes that we have commited to this feature branch with main branch.
+
+### Merge conflict:
+When we merge two branches, if there are changes in both the branches, then it will create conflict. Ex: Suppose there are
+2 devs working on same file. Then when we merge, it will create conflict.
+
+
+## GO look how to resolve and close the issue/issues

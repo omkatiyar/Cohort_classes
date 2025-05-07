@@ -1,0 +1,12 @@
+// in middlewares, we generally can't respond with res.send(..) as the request will be fulfilled there only
+// define the middleware : rateLimiter, calculateRequests -- popular middlewares. 
+// Find average time that is taking our server to handle requests. -- another middleware
+// app.use(express.json()) -- here inside app.use(middleware) we can write any middleware. It would be same as:
+app.post("/healthy",middleware,function(req,res){
+
+})
+// indside this middleware, next() should be called so that it moves to the targeted route.
+
+
+// global catches are written just before app.listen(port). They are just other middleware that modify the exception as we cant expose
+everything to the end user. 

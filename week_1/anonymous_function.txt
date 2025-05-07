@@ -1,0 +1,16 @@
+// the function defined without name is called anonymous function
+console.log(sumOfSomething(2,4, function(n){
+    return n*n;
+}))
+
+// the above is equivalent to this:
+
+function square(n){
+    return n*n;
+}
+function sumOfSomething(a,b){
+    sa=square(a);
+    sb=square(b);
+    return sa+sb;
+}
+console.log(sumOfSomething(2,4));

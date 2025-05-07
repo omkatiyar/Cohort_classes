@@ -1,0 +1,140 @@
+For every command, wildcard pattern matching works (like if we want to search for directories starting with
+Zo, we can use Zo*, similarly if we want to find all files/folders ending with zo, we can use *zo).
+
+The **GREP (in smallcase)** command is used to search for specific patterns or strings within files or outputs. 
+It filters and displays lines that match the given pattern, making it useful for text processing and 
+
+pwd - gives the details of present working directory
+ls - used to list everything present inside the pwd
+ls [directory_name] - lists all the files and directories present inside this directory
+Ex: ls gave 2 directory: Zoom & newdir
+Now ls newdir will list all the files and dierectories present inside this newdir
+
+ls -l [directory_name] : will list the permissions, then references, then owner, then actual owner, then size, then last updated and directory_name
+Ex: ls -l newdir  (This would give following output)
+-rw-r--r-- 1 om_katiyar user 192 April 8 19:13 auto_dir
+drwxr-xr-x 10 om_katiyar user 320 April 8 17:18 snake_gane
+
+ls -R directory_name : would list the files of directories present inside directory_name
+
+ls -lt directory_name : would list the last modified files/directories present inside directory [directory_name]
+
+ls -la [directory_name] : would list all the hidden files present inside the directory [directory_name]
+
+ls -lRa [directory_name] : list all the files inside the directories present inside [directory_name]
+
+ls -s [directory_name] : would list all the files/directories by the size
+
+If we want to look at all the json files inside some directory, we can use: ls*.json
+for js files we can use: ls*.js
+
+cd : used to change directory
+
+touch : used to create a newfile
+
+cat: used to add, modify or update the file.
+cat > [file_name] : used to add text/code
+cat >> [file_name] : used to modify the file
+
+mkdir [new_dir] : used to make new_dir named "new_dir".
+mkdir [new_dir] && cd [new_dir] : this will move from current working dir to new_dir
+mkdir -p frontend/scripts : this will first create a directory named "frontend" and then it will create "scripts" directory.
+
+mv: used to rename file/folder.  It is also used to move file from its original position to other position.
+example of renaming: mv ether.js robe.js (will rename the file to robe.js)
+example of moving: mv [directory_name] [other_directory_where_we_want_to_move_this_copy]
+
+cp [file_name]: used to copy the file not a directory
+cp -r [directory_name] [other_directory_where_we_want_to_move_this_copy]: used to copy directories
+
+rm -r [directory_name]: used to wipe out the entire folder
+
+chmod ugo+- [file_name]: change file permissions (modify , update or add the permissions). The u stands for user, g for group
+chmod -R ugo-rwx [directory_name]: change permissions of folder.
+r = read permissions, w = write permissions, x= execute permissions
+we can use u or g accordingly. Ex: chmod u-x file.text
+Ex2: chmod g+w file2.text
+
+echo 'some_message' : used to display message on terminal
+
+head -number [file_name] : will give first 10 rows of the file by default if -number is not given (-number argument is optional)
+tail -number [file_name] : will give last 10 rows of the file by default if -number is not given
+
+pipe operator (denoted by: |) : example would be command1 | command2 : This would pass the output of command1 to command2
+Ex: tail -n +25 newfile.txt | head 5 -- this would first return the first 25 rows from the start and then it would just 
+return 5 rows only
+
+wc [file_name]: Output will be [line_number] [word_number] [char_number] [file_name]
+Ex: wc newfile.txt, [line_number] tells the frquency 
+Output: 50 68 330 [file_name]
+
+grep "abc" [file_name] : searches the word "abc" in [file_name]
+Ex: grep "one" newfile.txt | wc
+Output : 3 5 25 (no of occurences are 3)
+Ex: grep "one" newfile.txt | wc -l ( -l is used to get just the occurences)
+Output : 3
+*** To get the occurences of some text (say one) we can use grep -c [text] [file_name] ***
+Ex: grep -c "one" newfile.txt
+Output: 3
+
+*** To get the text where this [text] is occuring, we can use grep -h [text] [file_name] ***
+Ex: grep -h "one" newfile.txt
+Output: one
+twenty one
+
+*** to ignore case sensitivity which searching text, we can use -hi with grep command ***
+Ex: grep -hi "one" newfile.txt
+Output: one
+one ONE 
+twenty One 
+
+*** To find occurences of some [text] across directory, we can use: grep -hir [text] . (Dot is for present directory)
+Ex: grep -hir "one" .
+Output: [file_names] [places where it is occuring] [complete text where one is present]
+
+*** To find the line where some [text] is occuring, we can use: grep -hin [text] [file_name]
+Ex:grep -hin "one" newfile.txt
+Output: 1:one
+4:one ONE
+24: twenty One
+
+*** To see the output with matched text only, we can use -o command along with grep ***
+Ex: grep -o "one" newfile.txt
+Output: one
+one
+one
+
+*** To get the output with matched text only without ignoring case, we can use -w command along with grep ***
+Ex: grep -w "one" newfile
+Output: one
+twenty one
+
+********************************************** NODE COMMANDS ********************************************
+To search after `n` lines, we can use the command: grep -A n [text] [file_name.txt]
+Ex: grep -A 5 ERROR log.txt
+Output: It skips the first 5 lines and then searches the word "ERROR".
+
+The command: grep -C `n` [text] [file_name] : displays the `n` lines Before AND After each match.
+
+SED COMMAND:
+-- sed '[line_number] s/[text_already_present]/[text_with_which_we_have_replace]' [file_name]
+The above command will replace the text with our desired text but on our specified line no
+
+-- to create backup of our file so that there is backup file if we do something wrong, use:
+sed -ibackup 's/[text_already_present]/[text_with_which_we_have_replace]' [file_name]
+The above command will create backup of our file, for ex: backup file would be now """log.txtbackup"""
+
+-- to move through multiple lines, we can use sed '[from_line_no],[to_line_no] s/[text_already_present]/[text_with_which_we_have_replace]' [file_name]
+
+AWK command:
+Copying the functionality of sed command:
+-- awk '{gsub([text_already_present]/,[text_with_which_we_have_replace])}{print}' [file_name]
+we are printing the the entire file now so that's why {print} is written
+
+-- for picking/printing any columns, we can use:
+awk '{print $[column_no], $[other_column_no]}' [file_name]
+ex: awk '{print $1, $2}' log.txt
+Output: this will print first and second column of log.txt
+
+** picking logs after certain Timestamp: awk '{ if ($1 > 1598863888 ) {print $0}}' [file_name]
+Output: will print logs after this Timestamp. Here $1 represents the first column. for 3rd column, we can use $3.

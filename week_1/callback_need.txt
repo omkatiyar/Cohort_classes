@@ -1,0 +1,16 @@
+--------------------------------------------------------------------------------------------
+We need callback because we want to follow DRY principle
+EX: 
+
+function square(a){
+    return a*a;
+}
+function cube(a){
+    return a*a*a;
+}
+function sumOfSomething(a,b,fn_to_call){
+    return fn_to_call(a)+fn_to_call(b);
+}
+console.log(sumOfSomething(2,3,square)); // prints 13
+console.log(sumOfSomething(2,3,cube)); // prints 35
+--------------------------------------------------------------------------------------------

@@ -1,0 +1,19 @@
+ECMAScript - It is the scripting language on which JS is based. it is just the documentation.
+javascript - JS includes additional features that are not part of ECMA Script like DOM manipulation which is not defined 
+by ECMAScript. More examples are: setTimeout(), fs.readFile()
+NodeJS - It is not a framework or language, it is just a runtime(that can run JS or compile JS).
+
+what can we do with NodeJS:
+1. create CLIs
+2. create a video player
+3, create a game
+4. create HTTP server (this is the main goal) (http server is most common way to communicate from frontend to backend)
+
+IPs are used to locate the servers on internet.
+
+How urls use to get IP? -- ***** PENDING *******
+
+How do browser does the task whenever we type something and press enter? (i.e. fire a request)
+Ans - Browser parses the url, then does the dns lookup (parses google.com to particular IP) and finally establishes a connection
+with the IP (also known as handshake).
+ 

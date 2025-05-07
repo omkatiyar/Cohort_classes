@@ -1,0 +1,14 @@
+- **Asyc meaning** -- do tasks parallely or context switch between the tasks or delegate tasks to other threads.
+Ex: 1. fs.readFile - file reading in JS, 
+    2. setTimeout is a async function,
+    3. Fetch - to fetch some data from an API endpoint
+
+- **Synchronous** (Sync) meaning-- do tasks one by one, sequentially.
+
+-- Event loop : There is call stack, web apis and callback queue (This is JS architecture)
+- call stack is the stack which keeps track of the function calls or code where the main thread points. (Ex: Me)
+- web apis are the APIs which are exposed by the browser to the JS code. They keep track of async functions like fs.readFile,
+setTimeout etc. After this execution, the function is pushed to the callback queue. (Delegated task to Kamla Didi)
+- callback queue is the queue where the functions are pushed after the execution of the web apis. 
+(Now it will wait until the code is finished)(Ex: Kamla Didi will wait for me to finish my work)
+After this event loop will pick the result that was pushed in callback queue.
