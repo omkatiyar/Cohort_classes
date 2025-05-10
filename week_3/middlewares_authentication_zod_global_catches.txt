@@ -10,3 +10,5 @@ app.post("/healthy",middleware,function(req,res){
 
 // global catches are written just before app.listen(port). They are just other middleware that modify the exception as we cant expose
 everything to the end user. 
+
+// go to zod.dev/?id=basic-usage for complete info about zod validations
