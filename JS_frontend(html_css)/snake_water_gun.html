@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+    let gameVar = prompt("Enter S, G or W");
+    let num = Math.floor(Math.random() * 3);
+    // console.log(num);
+    let arr = ["S","W","G"]
+    console.log(" Randomly chosed object is "+ arr[num]);
+    if(arr[num]==="G" || gameVar ==="G")
+    alert("You won");
+    else if(arr[num]==="S" && gameVar!=="G")
+    alert("You lost");
+    else if(arr[num]==="W" && gameVar === "G")
+    alert(" You will survive the water");
+    else if(arr[num] ==="W" && gameVar ==="S")
+    alert("You will be devoured");
+    else{
+        alert(" You can survive this ");
+    }
+</script>
+</body>
+</html>

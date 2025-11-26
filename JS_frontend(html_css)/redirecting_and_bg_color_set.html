@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+    let count=0;
+    while(count==0){
+        let num = prompt("Enter the number");
+        if(num === null || num.trim() === "" )
+        num = prompt("enter the number again");
+        else{
+            num = Number(num);
+            if(isNaN(num))
+            num = prompt("enter the number again");
+        else{
+            count++;
+            if(num>4)
+            location.href = "https://google.com";
+        }
+        }
+    }
+    let color = prompt("Enter the background color");
+    document.body.style.background = color;
+</script>
+</body>
+</html>
